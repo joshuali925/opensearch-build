@@ -57,14 +57,22 @@ components:
     checks:
       - manifest:component
   - name: sql
-    dist: https://ci.opensearch.org/ci/dbc/bundle-build/1.2.0/1127
+    repository: https://github.com/opensearch-project/sql.git
+    ref: "1.2"
     checks:
-      - manifest:component
+      - gradle:properties:version
+      - gradle:dependencies:opensearch.version: plugin
   - name: dashboards-reports
-    dist: https://ci.opensearch.org/ci/dbc/bundle-build/1.2.0/1127
+    repository: https://github.com/opensearch-project/dashboards-reports.git
+    ref: "1.2"
+    working_directory: "reports-scheduler"
     checks:
-      - manifest:component
+      - gradle:properties:version
+      - gradle:dependencies:opensearch.version
   - name: opensearch-observability
-    dist: https://ci.opensearch.org/ci/dbc/bundle-build/1.2.0/1127
+    repository: https://github.com/opensearch-project/trace-analytics.git
+    ref: "1.2"
+    working_directory: "opensearch-observability"
     checks:
-      - manifest:component
+      - gradle:properties:version
+      - gradle:dependencies:opensearch.version
